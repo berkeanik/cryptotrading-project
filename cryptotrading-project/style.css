@@ -1,0 +1,378 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+}
+
+/* Outer container */
+#outerWrap {
+  height: 100vh;
+  margin: 0 30vh;
+  border: 1px solid lightgray;
+  background: #fff;
+  position: relative;
+}
+
+/* Title bar */
+#titleBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  background: #fafafa;
+}
+#titleBar h1 {
+  margin: 0;
+  font-weight: lighter;
+  font-size: 20px;
+  color: #333;
+}
+
+/* Logout area */
+#logoutPanel {
+  display: flex;
+  align-items: center;
+}
+#logoutPanel p {
+  margin: 4px 8px;
+  color: #444;
+}
+#logoutPanel button {
+  background-color: #fff;
+  border: 1px solid #777;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 4px 10px;
+}
+
+/* Profile screen */
+#profilePanel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 88vh;
+  position: relative;
+}
+#emptyList {
+  font-size: 50px;
+  user-select: none;
+  color: lightgray;
+}
+#newProfileBtn {
+  position: absolute;
+  bottom: 8vh;
+  left: 20px;
+}
+.profileCard {
+  background-color: #dedede;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  padding: 10px 40px;
+  position: relative;
+  margin: 0 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.profileCard:hover {
+  background-color: #bbb;
+}
+.profIcon {
+  font-size: 40px;
+  color: #555;
+}
+.profileCard p {
+  text-align: center;
+  margin: 4px 0 0 0;
+  color: #333;
+}
+.btnDelProfile {
+  border-radius: 100%;
+  color: #fff;
+  background-color: #d33;
+  border: none;
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+.btnDelProfile:hover {
+  background-color: #a00;
+}
+
+/* Overlay form */
+#overlayForm {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 99;
+}
+#profileForm {
+  background: #fff;
+  padding: 10px;
+  width: 200px;
+  left: 42%;
+  position: relative;
+  top: 10%;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+}
+#profileForm h3 {
+  margin: 0;
+  padding-bottom: 5px;
+}
+#profileNameInput {
+  margin: 4px 0;
+  width: 90%;
+  padding: 5px;
+  border: 1px solid #444;
+  border-radius: 4px;
+}
+#profileForm button {
+  margin: 4px 0;
+  padding: 4px 8px;
+  background: #2b7;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Game panel */
+#gamePanel {
+  height: 90vh;
+  border: 1px solid #ddd;
+  margin: 0 5px;
+}
+#gameTop {
+  text-align: center;
+  padding: 8px 0;
+}
+#gameTop h2 {
+  margin: 0;
+}
+#gameTop p {
+  margin: 4px 0;
+  color: #444;
+}
+#gameTop button {
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0 3px;
+}
+
+/* Market box */
+#marketBox {
+  border: 1px solid #ccc;
+  margin: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+#coinMenu {
+  display: flex;
+  justify-content: center;
+}
+#coinMenu img {
+  max-width: 25px;
+  margin: 6px;
+  cursor: pointer;
+}
+#selectedCurrency {
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+#selectedCurrency img {
+  max-width: 20px;
+  margin-right: 10px;
+}
+#selectedCurrency h4 {
+  margin: 0;
+  margin-right: 15px;
+  font-weight: lighter;
+  color: #333;
+}
+#selectedCurrency p {
+  margin: 0;
+  color: red;
+  font-size: 12px;
+}
+
+/* Chart (original styles) */
+#chart {
+  height: 200px;
+  position: relative;
+  margin: 10px;
+  padding: 10px 0;
+  border: 1px solid lightgray;
+}
+.stick {
+  border: 1px solid black;
+  width: 0;
+  position: absolute;
+}
+.bar {
+  position: absolute;
+  border: 1px solid black;
+  z-index: 1;
+}
+.label {
+  position: absolute;
+  font-size: 12px;
+  background-color: white;
+  padding: 2px 4px;
+  border: 0;
+  border-radius: 3px;
+}
+.label.max {
+  top: -8px;
+  right: 0;
+}
+.label.min {
+  bottom: -8px;
+  right: 0;
+}
+.label.close {
+  right: 0px;
+  z-index: 2;
+  background-color: rgba(0, 0, 255, 0);
+  color: gray;
+}
+.dotted-line {
+  position: absolute;
+  border-top: 1px dotted gray;
+  width: 100%;
+  left: 0;
+  z-index: 0;
+}
+
+/* Total & trading */
+#totalBalance {
+  margin: 0;
+  margin-top: 5px;
+  text-align: center;
+}
+#tradeSection {
+  display: flex;
+  justify-content: space-between;
+}
+#tradeBox {
+  margin-left: 10px;
+  width: 25%;
+  border: 1px solid #999;
+  border-radius: 5px;
+  padding: 8px;
+  background: #fafafa;
+}
+#tradeBox h4 {
+  margin: 0;
+  padding: 5px 0;
+  text-align: center;
+}
+#tradeBox > div {
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-bottom: 5px;
+  background: #f0f0f0;
+}
+#tradeBox > div > button {
+  width: 50%;
+  background-color: transparent;
+  color: gray;
+  padding: 5px;
+  border: 0;
+}
+.selected-button {
+  background-color: green !important;
+  color: white !important;
+  border-radius: 5px !important;
+}
+.buyMode #tradeExec {
+  background: green;
+  color: #fff;
+}
+.sellMode #tradeExec {
+  background: red;
+  color: #fff;
+}
+#tradeQty {
+  width: 80%;
+  margin: 6px 0;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 4px;
+}
+#tradeInfo {
+  margin-left: 4px;
+  color: #333;
+}
+#tradeExec {
+  width: 100%;
+  border: 1px solid #777;
+  border-radius: 5px;
+  padding: 6px;
+  cursor: pointer;
+}
+
+/* Wallet */
+#walletBox {
+  width: 70%;
+  margin-right: 10px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  background: #fff;
+  padding: 8px;
+}
+#walletBox h4 {
+  margin: 0;
+  padding: 5px 0;
+  text-align: center;
+}
+#walletTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+#walletHeader {
+  background-color: #9999ff;
+  color: white;
+}
+#walletHeader th {
+  text-align: left;
+  padding: 3px;
+}
+#walletDollar {
+  background-color: lightgreen;
+}
+#walletDollar td {
+  padding: 3px;
+}
+#walletTable td img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+/* Heartbeat animation for the top coin */
+@keyframes heartbeat {
+0%   { transform: scale(1); }
+25%  { transform: scale(1.1); }
+50%  { transform: scale(1); }
+75%  { transform: scale(1.1); }
+100% { transform: scale(1); }
+}
+.heartbeat {
+animation: heartbeat 1.25s infinite;
+}
